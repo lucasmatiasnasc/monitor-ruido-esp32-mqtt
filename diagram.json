@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "author": "Projeto escolar - Monitoramento de Ruido",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "top": -116.5,
+      "left": -125,
+      "attrs": { "value": "1200" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledg",
+      "top": -80.4,
+      "left": 224.6,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rg",
+      "top": -34.15,
+      "left": 161.8,
+      "rotate": 180,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledr",
+      "top": -42,
+      "left": 224.6,
+      "attrs": { "color": "white" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rr",
+      "top": -5.35,
+      "left": 161.8,
+      "rotate": 180,
+      "attrs": { "value": "220" }
+    },
+    { "type": "wokwi-buzzer", "id": "buzz", "top": 60, "left": 213, "attrs": {} }
+  ],
+  "connections": [
+    [ "ledg:C", "rg:1", "blue", [] ],
+    [ "rg:2", "esp:GND.2", "black", [] ],
+    [ "ledr:C", "rr:1", "white", [] ],
+    [ "rr:2", "esp:GND.2", "black", [] ],
+    [ "esp:25", "ledg:A", "blue", [ "v0", "h-23.81", "v-192", "h288", "v57.6" ] ],
+    [ "esp:26", "ledr:A", "white", [ "h-33.41", "v-230.4", "h307.2", "v115.2" ] ],
+    [ "esp:GND.2", "buzz:1", "black", [ "v-19.2", "h62.44", "v96" ] ],
+    [ "pot1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "esp:34", "pot1:SIG", "green", [ "h0" ] ],
+    [ "esp:3V3", "pot1:VCC", "red", [ "h0" ] ],
+    [ "esp:27", "buzz:2", "green", [ "h-33.41", "v96", "h288", "v-19.2" ] ]
+  ],
+  "dependencies": {}
+}
